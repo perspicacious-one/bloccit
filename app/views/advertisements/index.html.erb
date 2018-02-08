@@ -1,0 +1,16 @@
+
+<h1>All Ads</h1>
+<table class="table">
+  <% @advertisements.each do |advertisement| %>
+  <tr class="row">
+      <td class="col h4">
+        <%= link_to advertisement.title, advertisement %>
+      </td>
+      <td class="col">
+        <span class="h4 badge badge-success">
+        $ <%= advertisement.price %>
+        </span>
+      </td>
+  </tr>
+  <% end %>
+</table>

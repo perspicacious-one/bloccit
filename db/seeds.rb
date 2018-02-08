@@ -13,6 +13,7 @@ require 'random_data'
     title:  RandomData.random_sentence,
     body:   RandomData.random_paragraph
   )
+
 end
 posts = Post.all
 
@@ -21,6 +22,15 @@ posts = Post.all
   Comment.create!(
     post: posts.sample,
     body: RandomData.random_paragraph
+  )
+end
+
+# Create advertisement
+20.times do
+  Advertisement.create!(
+    title:  RandomData.random_sentence,
+    copy:   RandomData.random_paragraph,
+    price:  RandomData.random_int
   )
 end
 
