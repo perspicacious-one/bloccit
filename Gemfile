@@ -43,6 +43,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.7.2'
   gem 'rails-controller-testing'
+  gem 'shoulda'
 end
 
 gem 'bootstrap-sass'
