@@ -22,7 +22,13 @@ topics = Topic.all
   )
 end
 posts = Post.all
-
+20.times do
+  SponsoredPost.create!(
+    title:  RandomData.random_sentence,
+    copy:   RandomData.random_paragraph,
+    price:  RandomData.random_int
+  )
+end
 # Create Comments
 100.times do
   Comment.create!(
