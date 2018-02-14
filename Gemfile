@@ -36,6 +36,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'thor', '0.19.1'
+# Used for encrypting passwords
+gem 'bcrypt'
 
 group :development do
   gem 'listen', '~> 3.0.5'
