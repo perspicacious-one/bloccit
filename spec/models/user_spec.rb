@@ -36,16 +36,4 @@ RSpec.describe User, type: :model do
         expect(user_with_invalid_email).to_not be_valid
       end
     end
-  describe "user attribute formats" do
-    let(:user_with_uppercase) { User.new(name: "JOHN DOE", email: "JOHN@BLOCCIT.com") }
-
-    it "should capitalize the name" do
-      user_with_uppercase.run_callbacks(:save)
-      expect(user_with_uppercase.name).to eq("John Doe")
-    end
-    it "should downcase the email" do
-      user_with_uppercase.run_callbacks(:save)
-      expect(user_with_uppercase.email).to eq("john@bloccit.com")
-    end
-  end
 end

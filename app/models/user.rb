@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  before_save :normalize_user
+  before_save { self.email = email.downcase if email.present? }
 
   validates :name, length: { minimum: 1, maximum: 100 }, presence: true
 
@@ -12,12 +12,4 @@ class User < ApplicationRecord
             length: { minimum: 3, maximum: 254 }
 
   has_secure_password
-
-  private
-  def normalize_user
-    self.name = name.split.map(&:capitalize).join(' ') if name.present?
-
-    self.email = email.downcase if email.present?
-  end
-
 end
