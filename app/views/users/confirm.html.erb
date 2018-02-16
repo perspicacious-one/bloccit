@@ -8,10 +8,11 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-2">
     <%= button_to "Yes", {controller: "users", action: "create", params: params.permit!}, class: 'btn btn-success' %>
   </div>
-  <div class="col-md-4">
-    <%= button_to "No", {controller: "users", action: "new", method: :get}, class: 'btn btn-failure' %>
+  <div class="col-md-2">
+    <%= link_to "No", new_user_path, class: 'btn btn-failure' %>
+    <%- # This does not work --> button_to "No", {controller: "users", action: "new", method: :get}, class: 'btn btn-failure' -%>
   </div>
 </div>
