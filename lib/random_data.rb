@@ -1,4 +1,16 @@
 module RandomData
+
+
+  def self.random_name
+    first_name = random_word.capitalize
+    last_name = random_word.capitalize
+    "#{first_name} #{last_name}"
+  end
+
+  def self.random_email
+    "#{random_word}@#{random_word}.#{random_word}"
+  end
+
   def self.random_paragraph
     sentences = []
     rand(4..8).times do
@@ -19,9 +31,8 @@ module RandomData
   end
 
   def self.random_word
-    letters = ('a'..'z').to_a
-    letters.shuffle!
-    letters[0,rand(3..8)].join
+    letters = ["a", "a", "a", "a", "a", "a", "a", "b", "b", "c", "c", "c", "d", "d", "d", "d", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "f", "f", "f", "g", "g", "h", "h", "h", "h", "h", "h", "i", "i", "i", "i", "i", "i", "i", "i", "j", "j", "k", "l", "l", "l", "l", "m", "m", "m", "n", "n", "n", "n", "n", "n", "n", "n", "o", "o", "o", "o", "o", "o", "o", "o", "p", "p", "q", "r", "r", "r", "r", "r", "r", "s", "s", "s", "s", "s", "s", "s", "s", "t", "t", "t", "t", "t", "t", "t", "t", "t", "u", "u", "u", "v", "w", "w", "x", "y", "y", "z"]
+    letters.sample(rand(3..8)).join
   end
 
 end
