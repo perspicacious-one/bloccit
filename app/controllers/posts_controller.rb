@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :require_sign_in, except: :show
-  before_action :authorize_user, except: [:show, :new, :create]
+  before_action :authorize_user, only: [:destroy]
+  before_action :authorize_change, only: [:edit, :update]
+
   def show
     @post = Post.find(params[:id])
   end
@@ -11,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+      @post = Post.find(params[:id])
   end
 
   def create
@@ -57,10 +59,18 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :body)
   end
+
   def authorize_user
     post = Post.find(params[:id])
-    unless current_user == post.user || current_user.admin?
-      flash[:alert] = "You must be an admin to do that."
+    unless current_user.admin? || post.user == current_user
+      flash[:alert] = "You do not have permission to do that."
+      redirect_to [post.topic, post]
+    end
+  end
+  def authorize_change
+    post = Post.find(params[:id])
+    unless current_user == post.user || current_user.admin? || current_user.moderator?
+      flash[:alert] = "You do not have permission to do that."
       redirect_to [post.topic, post]
     end
   end
