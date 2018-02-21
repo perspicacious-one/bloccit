@@ -7,6 +7,6 @@ module ApplicationHelper
   end
 
   def user_can_edit?
-    current_user && current_user.moderator?
+    current_user && (current_user.moderator? || current_user.admin?)
   end
 end
