@@ -19,11 +19,12 @@
 body {
   margin-bottom: 80px;
 }
-div {
-  margin-bottom: 10px;
-}
 .row {
-  padding: 20px;
+  padding-top: 20px;
+  align-items: center;
+}
+.nav {
+  margin-bottom: 20px;
 }
 .btn {
   margin: 5px 5px 5px 0;
