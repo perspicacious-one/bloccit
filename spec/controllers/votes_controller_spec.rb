@@ -61,6 +61,7 @@ RSpec.describe VotesController, type: :controller do
         post :up_vote, params: { post_id: user_post.id }
         expect(response).to redirect_to(my_topic)
       end
+
     end
 
     describe "POST down_vote" do
