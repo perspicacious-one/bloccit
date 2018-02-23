@@ -6,7 +6,7 @@ RSpec.describe VotesController, type: :controller do
   let(:my_user) { create(:user) }
   let(:other_user) { create(:user) }
   let(:user_post) { create(:post, topic: my_topic, user: other_user) }
-  
+
   context "guest" do
     describe "POST up_vote" do
       it "redirects the user to the sign in view" do
@@ -31,7 +31,7 @@ RSpec.describe VotesController, type: :controller do
     describe "POST up_vote" do
       it "the users first vote increases number of post votes by one" do
         votes = user_post.votes.count
-        post :up_vote, params: { post_id: user_post.id }
+        create(:up_vote, post: user_post)
         expect(user_post.votes.count).to eq(votes + 1)
       end
 
