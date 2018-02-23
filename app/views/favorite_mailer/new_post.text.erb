@@ -1,0 +1,7 @@
+You created the post: "<%= @post.title %>"
+ <%= "=" * (@post.title.length + 12) %>
+
+ <%= @post.body %>
+
+ You will receive notifications when your post is commented on. If you do not wish to receive these notifications,
+ <%= link_to "View your post here", topic_post_url(@post.topic, @post) %> and click "Unfavorite".

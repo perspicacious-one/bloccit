@@ -35,6 +35,7 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:body)
   end
+  
   def authorize_user
     comment = Comment.find(params[:id])
     unless current_user == comment.user || current_user.admin?
