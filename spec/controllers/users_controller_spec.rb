@@ -80,12 +80,4 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  describe "User show" do
-    let(:factory_user) { create(:user) }
-    let(:factory_post) { create(:post, user: factory_user) }
-
-    it "expects to have favorites" do
-      expect(factory_user.favorites.find_by_post_id(factory_post.id)).not_to be_nil
-    end
-  end
 end
