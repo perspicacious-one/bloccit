@@ -79,4 +79,5 @@ RSpec.describe UsersController, type: :controller do
       expect(assigns(:user)).to eq(factory_user)
     end
   end
+
 end
